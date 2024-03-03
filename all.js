@@ -1,23 +1,39 @@
-const comments=document.getElementById('comments');
-const cards=document.getElementById('cards')
+const comments = document.getElementById('comments');
+const cards = document.getElementById('cards')
 
-const loadData=async()=>{
-    const res=await fetch(' https://openapi.programming-hero.com/api/retro-forum/posts')
-    const data=await res.json()
-   const allData=data.posts
-   gainData(allData);
-// console.log(allData)
+const loadData = async () => {
+    const res = await fetch(' https://openapi.programming-hero.com/api/retro-forum/posts')
+    const data = await res.json()
+    const allData = data.posts
+    gainData(allData);
+    // console.log(allData)
 
 }
-const gainData=(Data)=>{
+const gainData = (Data) => {
     console.log(Data)
- Data.forEach(datas=>{
- 
-    const eachComments=document.createElement('div')
-    eachComments.classList =`hero  mt-3 p-7 rounded-2xl bg-base-200`
-    eachComments.innerHTML =`<div class="hero-content flex-col justify-end  flex  lg:flex-row items-start gap-14">
+    Data.forEach(datas => {
+        // const online = datas.isActive
+
+
+
+        // const pp=online=>{
+        //     if (online) {
+
+        //     const lol=document.getElementsByClassName('true') 
+        //     lol.classList.add('bg-green-500')
+                
+        //     }
+        //     else{
+        //         const lol2=document.getElementsByClassName('false')
+        //         lol2.classList.add('bg-red-500')
+        //     }
+        // }
+
+        const eachComments = document.createElement('div')
+        eachComments.classList = `hero  mt-3 p-7 rounded-2xl bg-base-200`
+        eachComments.innerHTML = `<div class="hero-content flex-col justify-end  flex  lg:flex-row items-start gap-14">
     <div class="indicator">
-        <span class="indicator-item badge bg-green-500"></span>
+        <span  id="lol"  class="indicator-item badge ${datas.isActive}  "></span>
         <div class="grid w-10 rounded-2xl bg-cover h-10 bg-base-300 place-items-center" style="background-image: url('${datas.image}')"></div>
     </div>
     <div class="flex flex-col gap-5">
@@ -39,18 +55,45 @@ const gainData=(Data)=>{
                         class="fa-regular fa-clock"></i> ${datas.posted_time}min</p>
             </div>
             <div>
-                <button class="btn bg-green-500 hover:bg-green-600 rounded-full"> <i class="fa-solid fa-envelope-open-text text-white fa-xl"> </i></button>
+                <button onClick="msg(${datas.title},${datas.view_count})" class="btn bg-green-500 hover:bg-green-600 rounded-full"> <i class="fa-solid fa-envelope-open-text text-white fa-xl"> </i></button>
             </div>
         </div>
     </div>
 </div>`;
-console.log(eachComments)
-const comments=document.getElementById('comments');
 
+        // const lol2 = document.createElement('span')
+        // const lol = document.getElementById('lol')
+
+
+        //  const color2=color()
+        //  console.log(color2)
+        //  console.log(online)
+        console.log(eachComments)
+        const comments = document.getElementById('comments');
+
+
+        // console.log(eachComments)
+//         
 comments.appendChild(eachComments)
- })
+
+
+    }                       
+
+ )
 }
-// allData.forEach()
 
 
 loadData()
+
+function msg(click,view_count){
+    const oo=document.getElementById('click-comments')
+    const yy=document.createElement('div')
+    yy.classList=`flex justify-between`
+    yy.innerHTML=`
+     <div>${click}</div>
+     <div><i
+     class="fa-regular fa-eye"></i>${view_count}</div>
+    
+    `;
+    oo.appendChild(yy)
+}
