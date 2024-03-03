@@ -1,1 +1,1 @@
-document.getElementById
+const comments=document.getElementById('comments');
