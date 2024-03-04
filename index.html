@@ -30,10 +30,14 @@
             background: rgb(18, 19, 45);
 
         }
-        .true{
-            background: rgb(16, 185, 129);       }
-        .false{
-            background: rgb(255, 52, 52);        }
+
+        .true {
+            background: rgb(16, 185, 129);
+        }
+
+        .false {
+            background: rgb(255, 52, 52);
+        }
     </style>
 </head>
 
@@ -118,12 +122,16 @@
                         class=" text-white text-[12px] lg:text-[32px] font-medium  my-4 leading-[20px] lg:leading-[40px]">
                         Share your favorite opinion and win coffee <br> mug so join with us quickly</h2>
                     <label
-                        class="input input-bordered h-[40px] lg:h-[45px] flex  lg:mt-4 rounded-2xl lg:gap-5 w-full lg:w-[400px] ">
-                        <input type="text" class="grow text-[12px]" placeholder="Search here anything" />
-                        <button
-                            class="bg-violet-500 rounded-2xl absolute ml-[160px] lg:ml-[300px] text-white font-semibold p-2 text-[12px] lg:text-xl">Search</button>
+                        class="input input-bordered items-center h-[40px] lg:h-[45px] flex  lg:mt-4 rounded-2xl lg:gap-5 w-full lg:w-[400px] ">
+                        <input type="text" class="grow text-[12px]" placeholder="Search here anything"
+                            id="search-input" />
+                        <button onclick="searchBtn()"
+                            class=" btn bg-violet-500 rounded-2xl absolute ml-[160px] lg:ml-[300px] text-white font-semibold p-2 text-[12px] lg:text-xl">Search</button>
                     </label>
+                    
+
                 </div>
+                
 
                 <div class="flex flex-col gap-5 lg:mt-7 h-[250px]  w-[200px] lg:w-[300px] p-7 bg-white rounded-xl">
                     <p class="flex text-black font-extrabold justify-between text-[12px] lg:text-xl items-center ">
@@ -148,45 +156,31 @@
                     thoughts on a myriad of topics ranging from the latest trends to timeless debates. </p>
             </div>
             <!-- click comments -->
-            <div class="flex flex-col lg:flex-row">
-                <div id="comments">
-                    <!-- <div class="hero  mt-3 p-7 rounded-2xl bg-base-200">
-                        <div class="hero-content flex-col justify-end  flex  lg:flex-row items-start gap-14">
-                            <div class="indicator">
-                                <span class="indicator-item badge bg-green-600"></span>
-                                <div class="grid w-5 h-5 bg-base-300 place-items-center "  ></div>
-                            </div>
-                            <div class="flex flex-col gap-5">
-                                <div class="flex gap-6 text-xl font-bold">
-                                    <p>#Music</p>
-                                    <p>Author:</p>
-                                </div>
-                                <h1 class="text-3xl font-bold">10 Kids Unaware of Their Halloween Costume</h1>
-                                <p class="py-3">It’s one thing to subject yourself to ha Halloween costume mishap
-                                    because,<br> hey that’s your prerogative</p>
-                                <hr class="border-dashed border-gray-300 border-1">
-                                <div class="flex justify-between items-center">
-                                    <div class="flex gap-4">
-                                        <p class="text-gray-400 flex gap-4 items-center"><i
-                                                class="fa-regular fa-message"></i> 560</p>
-                                        <p class="text-gray-400 flex gap-4 items-center"><i
-                                                class="fa-regular fa-eye"></i>560</p>
-                                        <p class="text-gray-400 flex gap-4 items-center"><i
-                                                class="fa-regular fa-clock"></i> 560</p>
-                                    </div>
-                                    <div>
-                                        <button class="btn bg-green-500 hover:bg-green-600 rounded-full"> <i class="fa-solid fa-envelope-open-text text-white fa-xl"> </i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
+            <div class="flex gap-x-3 ">
+                <div id="comments" class="">
 
                 </div>
-                <div id="click-comments" class="flex justify-between">
-                    <div >Title</div>
-                    <div>Make as read <span>04</span></div>
 
+
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-y-4">
+                        <div id="get" class="flex items-center justify-between p-0 gap-10 hidden lg:w-[350px]  ">
+                            <div class="font-black text-xl  ">Title</div>
+                            <div
+                                class="text-gray-400 flex items-center  gap-1 justify-center w-max text-[16px]  font-bold">
+                                <img class="p-1" src="images/Frame.png" alt="">
+                                <div class="flex gap-1">
+                                    <p>Make as read</p>
+                                    (<p id="counter">0</p>)
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr class="border-dashed border-1 border-gray-300">
+                    </div>
+                    <div id="click-comments" class=" flex flex-col gap-6 justify-around ml-4 ">
+
+                    </div>
                 </div>
 
             </div>
@@ -229,11 +223,57 @@
         <div class="my-9">
             <div class=" text-center flex flex-col items-center gap-4">
                 <p class="font-black text-3xl">Latest Posts</p>
-                <p class="font-semibold text-gray-500 w-4/6"> Here, we invite you to engage, explore, and express your
+                <p class=" font-semibold text-gray-500 w-4/6"> Here, we invite you to engage, explore, and express your
                     thoughts on a myriad of topics ranging from the latest trends to timeless debates. </p>
             </div>
             <!-- cards add here  -->
-            <div id="cards" class="flex">
+            <div id="cards" class="flex  justify-center gap-5">
+              
+                <!-- <div class="w-1/3 flex flex-col gap-5 p-5">
+                    <div>
+
+                    </div>
+                    <div class="flex gap-3">
+                        <img src="Frame.png" alt="">
+                        <p>sduifhui</p>
+
+                    </div>
+                    <div>
+                        <p class="font-black ">What will a mars habitat force that impact in our daily life!!!</p>
+                        <p class="text-gray-400 font-semibold">Yes, you can run unit tests and view the results directly within the app. </p>
+
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <p>sdf</p>
+                        <div class="flex gap-2">
+                            <p>sfdfdfs</p>
+                            <p>sdfsd</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/3 flex flex-col gap-5 p-5">
+                    <div>
+
+                    </div>
+                    <div class="flex gap-3">
+                        <img src="Frame.png" alt="">
+                        <p>sduifhui</p>
+
+                    </div>
+                    <div>
+                        <p class="font-black ">What will a mars habitat force that impact in our daily life!!!</p>
+                        <p class="text-gray-400 font-semibold">Yes, you can run unit tests and view the results directly within the app. </p>
+
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <p>sdf</p>
+                        <div class="flex gap-2">
+                            <p>sfdfdfs</p>
+                            <p>sdfsd</p>
+                        </div>
+                    </div>
+                </div> -->
+                
 
             </div>
 
