@@ -41,7 +41,7 @@
     </style>
 </head>
 
-<body class="lg:w-[1170px] mx-auto mulish ">
+<body class="lg:w-[1170px] mx-auto mulish p-2 ">
     <header class="mt-10">
         <!-- nav bar -->
         <div class="navbar   bg-base-100  ">
@@ -76,11 +76,14 @@
                     <a class="btn btn-ghost font-black text-2xl lg:text-3xl   ">De Tro</a>
                 </div>
 
-                <div class="flex gap-16">
+                <div class="flex gap-16  items-center">
                     <div class="navbar-center hidden lg:flex">
-                        <ul class="menu menu-horizontal px-1">
-                            <li class="tooltip" data-tip="Home"><a id="house" class="btn "><i
-                                        class="fa-solid fa-house"></i></a></li>
+                        <ul class="menu menu-horizontal flex  px-1">
+                            <li class="tooltip" data-tip="Home">
+                                <a id="house" class="btn ">
+                                    <i class="fa-solid fa-house"></i>
+                                </a>
+                            </li>
                             <!-- house -->
                             <li class="tooltip" data-tip="Write">
 
@@ -98,7 +101,7 @@
                         </ul>
                     </div>
                     <div class="navbar-end">
-                        <a class="btn bg-violet-500 rounded-3xl h-[10px] w-[90px] lg:h-[35px] font-bold text-white">Sign
+                        <a class="btn hover:bg-violet-600 bg-violet-500 rounded-3xl h-[10px] w-[90px] lg:h-[35px] font-bold text-white">Sign
                             In</a>
                     </div>
                 </div>
@@ -126,12 +129,12 @@
                         <input type="text" class="grow text-[12px]" placeholder="Search here anything"
                             id="search-input" />
                         <button onclick="searchBtn()"
-                            class=" btn bg-violet-500 rounded-2xl absolute ml-[160px] lg:ml-[300px] text-white font-semibold p-2 text-[12px] lg:text-xl">Search</button>
+                            class=" lg:btn-sm lg:h-[40px] flex items-center btn-sm  hover:bg-violet-600  bg-violet-500 rounded-2xl  absolute ml-[160px] lg:ml-[300px] text-white font-semibold p-2 text-[12px] lg:text-xl">Search</button>
                     </label>
-                    
+
 
                 </div>
-                
+
 
                 <div class="flex flex-col gap-5 lg:mt-7 h-[250px]  w-[200px] lg:w-[300px] p-7 bg-white rounded-xl">
                     <p class="flex text-black font-extrabold justify-between text-[12px] lg:text-xl items-center ">
@@ -155,16 +158,18 @@
                 <p class="font-semibold text-gray-500 w-4/6"> Here, we invite you to engage, explore, and express your
                     thoughts on a myriad of topics ranging from the latest trends to timeless debates. </p>
             </div>
+        <div id="load" class="hidden border-2 w-1/5 flex  mx-auto border-green-700 loading loading-ring loading-lg"></div>
+
             <!-- click comments -->
-            <div class="flex gap-x-3 ">
+            <div class="flex flex-col lg:flex-row my-7 gap-x-3 ">
                 <div id="comments" class="">
+                   
 
                 </div>
-
-
-                <div class="flex flex-col gap-4">
+                <div class="flex flex-col my-12 gap-4">
                     <div class="flex flex-col gap-y-4">
-                        <div id="get" class="flex items-center justify-between p-0 gap-10 hidden lg:w-[350px]  ">
+                        <div id="get"
+                            class=" items-center flex hidden justify-between p-5 lg:p-0 gap-10  lg:w-[350px]  ">
                             <div class="font-black text-xl  ">Title</div>
                             <div
                                 class="text-gray-400 flex items-center  gap-1 justify-center w-max text-[16px]  font-bold">
@@ -183,105 +188,62 @@
                     </div>
                 </div>
 
+
             </div>
-        </div>
-        <!-- join our forum  -->
-        <div>
-            <div class="bg-clr h-[450px] mt-5 p-4 lg:pt-0 lg:h-[350px]">
-                <div
-                    class=" px-4 flex flex-col items-center text-center lg:text-left gap-5 pt-2 mt-6 lg:flex-row lg:justify-around">
-                    <div class="flex flex-col lg:ml-6 lg:w-1/2 lg:mt-5 lg:gap-2 lg:items-start items-center">
-                        <p class="text-2xl font-medium lg:leading-[70px] lg:text-[64px] text-white items-start">
-                            Join Our <span
-                                class=" inline-block text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-fuchsia-500     ">
-                                Forum </span>
-
-                        </p>
-                        <h2
-                            class=" lg:text-left text-center text-white  text-[12px] lg:text-[18px] font-medium  my-4 leading-[20px] lg:leading-[40px]">
-                            Share your favorite opinion and win and wp forum coffee. Yes, you can run unit tests
-                            and view the results. </h2>
-                        <div class="w-full">
-                            <button
-                                class="bg-violet-400 rounded-2xl    text-white font-semibold p-2 text-[12px] lg:text-xl">Registered
-                                Now</button>
-                        </div>
-                    </div>
-
+            <!-- join our forum  -->
+            <div>
+                <div class="bg-clr h-[450px] mt-5 p-4 lg:pt-0 lg:h-[350px]">
                     <div
-                        class="border-x-2 border-t-2 border-dashed h-[280px] border-gray-200 flex flex-col gap-5 lg:mt-10 w-[200px] lg:w-[300px] p-7 e rounded-xl">
-                        <img class="mt-10" src="images/joinforum.png" alt="">
+                        class=" px-4 flex flex-col items-center text-center lg:text-left gap-5 pt-2 mt-6 lg:flex-row lg:justify-around">
+                        <div class="flex flex-col lg:ml-6 lg:w-1/2 lg:mt-5 lg:gap-2 lg:items-start items-center">
+                            <p class="text-2xl font-medium lg:leading-[70px] lg:text-[64px] text-white items-start">
+                                Join Our <span
+                                    class=" inline-block text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-fuchsia-500     ">
+                                    Forum </span>
+
+                            </p>
+                            <h2
+                                class=" lg:text-left text-center text-white  text-[12px] lg:text-[18px] font-medium  my-4 leading-[20px] lg:leading-[40px]">
+                                Share your favorite opinion and win and wp forum coffee. Yes, you can run unit tests
+                                and view the results. </h2>
+                            <div class="w-full">
+                                <button
+                                    class="btn font-extrabold hover:bg-violet-700 border-0 bg-violet-500 rounded-2xl    text-white p-2 text-[12px] lg:text-xl">Registered
+                                    Now</button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="border-x-2 border-t-2 border-dashed h-[280px] border-gray-200 flex flex-col gap-5 lg:mt-10 w-[200px] lg:w-[300px] p-7 e rounded-xl">
+                            <img class="mt-10" src="images/joinforum.png" alt="">
+                        </div>
+
                     </div>
+
+
+                </div>
+            </div>
+
+            <!-- latest posts -->
+            <div class="my-9">
+                <div class=" text-center flex flex-col items-center gap-4">
+                    <p class="font-black text-3xl">Latest Posts</p>
+                    <p class=" font-semibold text-gray-500 w-4/6"> Here, we invite you to engage, explore, and express
+                        your
+                        thoughts on a myriad of topics ranging from the latest trends to timeless debates. </p>
+                </div>
+                <!-- cards add here  -->
+                <div id="cards" class="flex flex-col  lg:flex-row justify-center gap-8 mt-10 lg:gap-5">
+
+
 
                 </div>
 
-
             </div>
-        </div>
-
-        <!-- latest posts -->
-        <div class="my-9">
-            <div class=" text-center flex flex-col items-center gap-4">
-                <p class="font-black text-3xl">Latest Posts</p>
-                <p class=" font-semibold text-gray-500 w-4/6"> Here, we invite you to engage, explore, and express your
-                    thoughts on a myriad of topics ranging from the latest trends to timeless debates. </p>
-            </div>
-            <!-- cards add here  -->
-            <div id="cards" class="flex  justify-center gap-5">
-              
-                <!-- <div class="w-1/3 flex flex-col gap-5 p-5">
-                    <div>
-
-                    </div>
-                    <div class="flex gap-3">
-                        <img src="Frame.png" alt="">
-                        <p>sduifhui</p>
-
-                    </div>
-                    <div>
-                        <p class="font-black ">What will a mars habitat force that impact in our daily life!!!</p>
-                        <p class="text-gray-400 font-semibold">Yes, you can run unit tests and view the results directly within the app. </p>
-
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <p>sdf</p>
-                        <div class="flex gap-2">
-                            <p>sfdfdfs</p>
-                            <p>sdfsd</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-1/3 flex flex-col gap-5 p-5">
-                    <div>
-
-                    </div>
-                    <div class="flex gap-3">
-                        <img src="Frame.png" alt="">
-                        <p>sduifhui</p>
-
-                    </div>
-                    <div>
-                        <p class="font-black ">What will a mars habitat force that impact in our daily life!!!</p>
-                        <p class="text-gray-400 font-semibold">Yes, you can run unit tests and view the results directly within the app. </p>
-
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <p>sdf</p>
-                        <div class="flex gap-2">
-                            <p>sfdfdfs</p>
-                            <p>sdfsd</p>
-                        </div>
-                    </div>
-                </div> -->
-                
-
-            </div>
-
-        </div>
 
     </main>
     <footer>
-        <footer class="footer footer-center p-10 text-black">
+        <footer class="footer shadow-[5px,5px,] footer-center p-10 text-black">
             <aside class="flex flex-col gap-5">
                 <p class="font-black text-3xl">De Tro</p>
                 <p class="font-bold text-gray-500 leading-6">

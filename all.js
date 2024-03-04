@@ -17,7 +17,7 @@ const gainData = (Data) => {
 
 
         const eachComments = document.createElement('div')
-        eachComments.classList = `hero  mt-3 p-7 rounded-2xl bg-base-200`
+        eachComments.classList = `hero shadow-2xl w-full lg:w-full mt-3 p-7 rounded-2xl bg-base-200`
         eachComments.innerHTML = `<div class="hero-content flex-col justify-end  flex  lg:flex-row items-start gap-14">
     <div class="indicator">
         <span  id="lol"  class="indicator-item badge ${datas.isActive}  "></span>
@@ -31,13 +31,13 @@ const gainData = (Data) => {
         <h1 id=" "class="text-3xl font-bold">${datas.title}</h1>
         <p class="py-3">${datas.description}</p>
         <hr class="border-dashed border-gray-300 border-1">
-        <div class="flex justify-between  w-[600px] items-center">
-            <div class="flex gap-4">
-                <p class="text-gray-400 flex gap-4 items-center"><i
+        <div class="flex justify-between gap-5  lg:w-[600px]  items-center">
+            <div class="flex gap-2 lg:gap-4">
+                <p class="text-gray-400 flex gap-2 lg:gap-4 items-center"><i
                         class="fa-regular fa-message"></i> ${datas.comment_count}</p>
-                <p class="text-gray-400 flex gap-4 items-center"><i
+                <p class="text-gray-400 flex gap-2 lg:gap-4 items-center"><i
                         class="fa-regular fa-eye"></i>${datas.view_count}</p>
-                <p class="text-gray-400 flex gap-4 items-center"><i
+                <p class="text-gray-400 flex gap-2 lg:gap-4 items-center"><i
                         class="fa-regular fa-clock"></i> ${datas.posted_time}min</p>
             </div>
             <div>
@@ -71,10 +71,20 @@ const searchBtn = () => {
     const input = document.getElementById('search-input')
     console.log(input)
     console.log(input.value)
+load()
+
     const get = document.getElementById('get')
     get.classList.remove('hidden')
+    setInterval(loadData(input.value),500000)
 
-    loadData(input.value)
+}
+const load=()=>{
+    const loading=document.getElementById('load')
+    const loading2=loading.classList.remove('hidden')
+    const loading3=loading.classList.add('remove')
+
+    setTimeout(loading2,2000)
+    // setTimeout(leading3,5000)
 
 }
 // side add
@@ -85,7 +95,7 @@ const msg = (ll) => {
     console.log(oo)
 
     const yy = document.createElement('div')
-    yy.classList = `flex flex-col gap-3 `
+    yy.classList = `shadow-2xl flex flex-col gap-3 `
     yy.innerHTML = `
      <div class="flex gap-4 justify-between">
      <div class="font-bold">10 Kids Unaware of Their Costume</div>
@@ -134,35 +144,33 @@ const uu=data1.author.designation
  const uu1= (typeof uu !== 'undefined' && typeof uu === 'string') ? uu : "Unknown";
 var kk1 = (typeof kk !== 'undefined' && typeof kk === 'string') ? kk : "Unknown";
 
-// let pp = (typeof (kk) === 'undefined' && typeof (kk) !== 'string') ? kk : sf;
 
-// let pp=(typeof(kk)!=='undefined')?kk:sfhdh
 console.log(kk1)
 
 
         const eachComments = document.createElement('div')
-        // eachComments.classList = `hero  mt-3 p-7 rounded-2xl bg-base-200`
-        eachComments.innerHTML = `  <div class="w-full border-2 border-green-600 flex flex-col gap-5 p-5">
-        <div class="bg-cover w-32 h-32 " style="background-image: url('${data1.cover_image}')">
+        eachComments.classList = `shadow-2xl lg:pl-10`
+        eachComments.innerHTML = `  <div class="w-full justify-center items-center text-center lg:items-start lg:text-left flex flex-col gap-5 p-5">
+        <div class="bg-cover rounded-xl my-4 w-32 h-32 " style="background-image: url('${data1.cover_image}')">
           
 
         </div>
         <div class="flex gap-3">
             <img src="Frame.png" alt="">
-            <p>${kk1}</p>
+            <p class="font-bold">${kk1}</p>
 
         </div>
-        <div>
+        <div class="flex flex-col gap-4">
             <p class="font-black ">What will a mars habitat force that impact in our daily life!!!</p>
             <p class="text-gray-400 font-semibold">Yes, you can run unit tests and view the results directly within the app. </p>
 
         </div>
-        <div class="flex items-center gap-5">
-            <p class="bg-cover w-8 h-8 rounded-lg " style="background-image: url('${data1.profile_image}')"></p>
+        <div class="flex flex-col lg:flex-row items-center gap-5">
+            <p class="bg-cover lg:w-8 w-20 h-20 my-4 lg:h-8 rounded-lg " style="background-image: url('${data1.profile_image}')"></p>
             <div class="flex flex-col gap-2">
-                <p>${data1.author.name
+                <p class="font-black ">${data1.author.name
                 }</p>
-                <p>${uu1
+                <p class="font-bold">${uu1
                 }</p>
             </div>
         </div>
@@ -175,4 +183,3 @@ console.log(kk1)
 
     })
 }
-leatstData()
