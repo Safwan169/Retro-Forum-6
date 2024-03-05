@@ -71,7 +71,7 @@ const searchBtn = () => {
     const input = document.getElementById('search-input')
    
     load(true)
-    document.getElementById('commentsHead').classList.add('hidden')
+    document.getElementById('commentsHead').classList.add('hidden','text-center')
    setInterval( ()=>{ document.getElementById('commentsHead').classList.remove('hidden')
     loadData(input.value)},2000)
 
