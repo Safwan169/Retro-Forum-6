@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>De Tro</title>
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -126,10 +126,10 @@
                         Share your favorite opinion and win coffee <br> mug so join with us quickly</h2>
                     <label
                         class="input input-bordered items-center h-[40px] lg:h-[45px] flex  lg:mt-4 rounded-2xl lg:gap-5 w-full lg:w-[400px] ">
-                        <input type="text" class="grow text-[12px]" placeholder="Search here anything"
+                        <input type="text" class="z-50 grow border-5 border-green-600 text-[12px]" placeholder="Search here anything"
                             id="search-input" />
                         <button onclick="searchBtn()"
-                            class=" lg:btn-sm lg:h-[40px] flex items-center btn-sm  hover:bg-violet-600  bg-violet-500 rounded-2xl  absolute ml-[160px] lg:ml-[300px] text-white font-semibold p-2 text-[12px] lg:text-xl">Search</button>
+                            class=" z-50 lg:btn-sm lg:h-[40px] flex items-center btn-sm  hover:bg-violet-600  bg-violet-500 rounded-2xl  absolute ml-[160px] lg:ml-[300px] text-white font-semibold p-2 text-[12px] lg:text-xl">Search</button>
                     </label>
 
 
@@ -161,7 +161,7 @@
         <div id="load" class="hidden border-2 w-1/5 flex  mx-auto border-green-700 loading loading-ring loading-lg"></div>
 
             <!-- click comments -->
-            <div class="flex flex-col lg:flex-row my-7 gap-x-3 ">
+            <div id="commentsHead" class="flex flex-col lg:flex-row my-7 gap-x-3 ">
                 <div id="comments" class="">
                    
 
@@ -169,7 +169,7 @@
                 <div class="flex flex-col my-12 gap-4">
                     <div class="flex flex-col gap-y-4">
                         <div id="get"
-                            class=" items-center flex hidden justify-between p-5 lg:p-0 gap-10  lg:w-[350px]  ">
+                            class=" items-center flex  lg:visible justify-between p-5 lg:p-0 gap-10  lg:w-[350px]  ">
                             <div class="font-black text-xl  ">Title</div>
                             <div
                                 class="text-gray-400 flex items-center  gap-1 justify-center w-max text-[16px]  font-bold">

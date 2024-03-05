@@ -1,21 +1,21 @@
 const comments = document.getElementById('comments');
 const cards = document.getElementById('cards')
 
-const loadData = async (value) => {
+const loadData = async (value, coding) => {
     console.log(value)
-    const res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`)
+    const res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${value || ''}`)
     const data = await res.json()
     const allData = data.posts
     gainData(allData);
-    // console.log(allData)
 
 }
 const gainData = (Data) => {
     console.log(Data)
-    comments.textContent = ""
+    comments.textContent = " "
     Data.forEach(datas => {
 
-
+        console.log(datas.title)
+        const datasTitle = datas.title
         const eachComments = document.createElement('div')
         eachComments.classList = `hero shadow-2xl w-full lg:w-full mt-3 p-7 rounded-2xl bg-base-200`
         eachComments.innerHTML = `<div class="hero-content flex-col justify-end  flex  lg:flex-row items-start gap-14">
@@ -41,20 +41,19 @@ const gainData = (Data) => {
                         class="fa-regular fa-clock"></i> ${datas.posted_time}min</p>
             </div>
             <div>
-                <button onClick="msg(${datas.view_count})"class="btn bg-green-500 hover:bg-green-600 rounded-full"> <i class="fa-solid fa-envelope-open-text text-white fa-xl"> </i></button>
+                <button onClick='msg("${datas.view_count}" ,"${datasTitle.replace(/'/, '')}")' class="btn bg-green-500 hover:bg-green-600 rounded-full"> <i class="fa-solid fa-envelope-open-text text-white fa-xl"> </i></button>
             </div>
         </div>
     </div>
 </div>`;
 
 
-        console.log(eachComments)
         const comments = document.getElementById('comments');
 
 
         comments.appendChild(eachComments)
 
-        //         
+                
 
 
 
@@ -62,35 +61,50 @@ const gainData = (Data) => {
     }
 
     )
+load(false)
 
 }
 // search
-// loadData()
+
 
 const searchBtn = () => {
     const input = document.getElementById('search-input')
-    console.log(input)
-    console.log(input.value)
-load()
+   
+    load(true)
+    document.getElementById('commentsHead').classList.add('hidden')
+   setInterval( ()=>{ document.getElementById('commentsHead').classList.remove('hidden')
+    loadData(input.value)},2000)
 
-    const get = document.getElementById('get')
-    get.classList.remove('hidden')
-    setInterval(loadData(input.value),500000)
+
+
+   
+
 
 }
-const load=()=>{
-    const loading=document.getElementById('load')
-    const loading2=loading.classList.remove('hidden')
-    const loading3=loading.classList.add('remove')
 
-    setTimeout(loading2,2000)
-    // setTimeout(leading3,5000)
+
+loadData()
+
+const load = (isLoading) => {
+    const loading = document.getElementById('load')
+    if (isLoading) {
+    loading.classList.remove('hidden')
+        
+    }
+    else{
+     loading.classList.add('hidden')
+
+    }
+    
 
 }
 // side add
 let num = 0;
-const msg = (ll) => {
+const msg = (ll, mm) => {
+    const get = document.getElementById('get')
+    get.classList.remove('hidden')
     console.log(ll)
+    console.log(mm)
     const oo = document.getElementById('click-comments')
     console.log(oo)
 
@@ -98,7 +112,7 @@ const msg = (ll) => {
     yy.classList = `shadow-2xl flex flex-col gap-3 `
     yy.innerHTML = `
      <div class="flex gap-4 justify-between">
-     <div class="font-bold">10 Kids Unaware of Their Costume</div>
+     <div class="font-bold">${mm}</div>
      <div class="flex flex-row gap-3 items-center justify-center"><i
      class="fa-regular fa-eye"></i>${ll}</div>
      </div>
@@ -112,24 +126,10 @@ const msg = (ll) => {
     const counter = document.getElementById('counter')
     console.log(counter)
     num = num + 1
-    // console.log(num)
     counter.innerText = num
 
 }
-// function msg(click,view_count){
-//     const oo=document.getElementById('click-comments')
-//     const yy=document.createElement('div')
-//     yy.classList=`flex justify-between`
-//     yy.innerHTML=`
-//      <div>${click}</div>
-//      <div><i
-//      class="fa-regular fa-eye"></i>${view_count}</div>
 
-//     `;
-//     oo.appendChild(yy)
-
-
-// leats data
 const leatstData = async () => {
     const res = await fetch(" https://openapi.programming-hero.com/api/retro-forum/latest-posts")
     const data = await res.json()
@@ -138,14 +138,14 @@ const leatstData = async () => {
 const LeatstData = (last) => {
     console.log(last)
     last.forEach(data1 => {
-const kk=data1.author.posted_date
-const uu=data1.author.designation
- 
- const uu1= (typeof uu !== 'undefined' && typeof uu === 'string') ? uu : "Unknown";
-var kk1 = (typeof kk !== 'undefined' && typeof kk === 'string') ? kk : "Unknown";
+        const kk = data1.author.posted_date
+        const uu = data1.author.designation
+
+        const uu1 = (typeof uu !== 'undefined' && typeof uu === 'string') ? uu : "Unknown";
+        var kk1 = (typeof kk !== 'undefined' && typeof kk === 'string') ? kk : "Unknown";
 
 
-console.log(kk1)
+        console.log(kk1)
 
 
         const eachComments = document.createElement('div')
@@ -169,13 +169,12 @@ console.log(kk1)
             <p class="bg-cover lg:w-8 w-20 h-20 my-4 lg:h-8 rounded-lg " style="background-image: url('${data1.profile_image}')"></p>
             <div class="flex flex-col gap-2">
                 <p class="font-black ">${data1.author.name
-                }</p>
+            }</p>
                 <p class="font-bold">${uu1
-                }</p>
+            }</p>
             </div>
         </div>
     </div>`;
-// console.log(typeof(kk))
         const comments5 = document.getElementById('cards');
 
 
@@ -183,3 +182,4 @@ console.log(kk1)
 
     })
 }
+leatstData()
