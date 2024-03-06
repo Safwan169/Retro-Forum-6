@@ -31,7 +31,7 @@ const gainData = (Data) => {
         <h1 id=" "class="text-3xl font-bold">${datas.title}</h1>
         <p class="py-3">${datas.description}</p>
         <hr class="border-dashed border-gray-300 border-1">
-        <div class="flex justify-between gap-5  lg:w-[600px]  items-center">
+        <div class="flex justify-between gap-5 w-full  lg:w-[600px]  items-center">
             <div class="flex gap-2 lg:gap-4">
                 <p class="text-gray-400 flex gap-2 lg:gap-4 items-center"><i
                         class="fa-regular fa-message"></i> ${datas.comment_count}</p>
