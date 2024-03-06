@@ -69,10 +69,10 @@ load(false)
 
 const searchBtn = () => {
     const input = document.getElementById('search-input')
-   
+   console.log(input.value)
     load(true)
     document.getElementById('commentsHead').classList.add('hidden','text-center')
-   setInterval( ()=>{ document.getElementById('commentsHead').classList.remove('hidden')
+   setTimeout( ()=>{ document.getElementById('commentsHead').classList.remove('hidden')
     loadData(input.value)},2000)
 
 
@@ -138,14 +138,13 @@ const leatstData = async () => {
 const LeatstData = (last) => {
     console.log(last)
     last.forEach(data1 => {
-        const kk = data1.author.posted_date
-        const uu = data1.author.designation
+        const designationn = data1.author.posted_date
+        const datee = data1.author.designation
 
-        const uu1 = (typeof uu !== 'undefined' && typeof uu === 'string') ? uu : "Unknown";
-        var kk1 = (typeof kk !== 'undefined' && typeof kk === 'string') ? kk : "Unknown";
+        const Designation = (typeof datee === 'string') ? datee : "Unknown";
+        const Date = (  typeof designationn === 'string') ? designationn : "Unknown";
 
 
-        console.log(kk1)
 
 
         const eachComments = document.createElement('div')
@@ -157,7 +156,7 @@ const LeatstData = (last) => {
         </div>
         <div class="flex gap-3">
             <img src="Frame.png" alt="">
-            <p class="font-bold">${kk1}</p>
+            <p class="font-bold">${Date}</p>
 
         </div>
         <div class="flex flex-col gap-4">
@@ -170,7 +169,7 @@ const LeatstData = (last) => {
             <div class="flex flex-col gap-2">
                 <p class="font-black ">${data1.author.name
             }</p>
-                <p class="font-bold">${uu1
+                <p class="font-bold">${Designation
             }</p>
             </div>
         </div>
